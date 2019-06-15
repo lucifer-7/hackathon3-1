@@ -264,11 +264,11 @@
 <script>
     const name=document.getElementById('name');
     const drop=document.getElementById('drop');
-    
+    var check=0;
+
     function hit() {
         var username=name.value;
         var dropLoc=drop.value;
-        var check=0;
         
         axios.post('/destination',{
             username : username,
@@ -281,9 +281,7 @@
         .catch(function(err){
             console.log(err);
         });
-        
-        if(check==1)
-        {display();} 
+        display(); 
     }
 
     function display() {
@@ -308,8 +306,31 @@
         });
         xhr.open('GET', "https://cors-anywhere.herokuapp.com/" + url4);
         xhr.send();
-
     }
+    setInterval(function(){
+        var jsonData;
+        axios.get('/destination')
+        .then(function(response){
+           jsonData=JSON.parse(response);
+        })
+        .catch(function(err){
+            console.log(err);
+        });
+        var dropLoc=drop.value;
+        var users=[];var count=0;
+        for(var i=0;i<jsonData.length;i++){
+          if(jsonData[i].drop==dropLoc){
+          users[count]=jsonData[i].username;
+          count++;
+        }
+    }
+    var miles=document.getElementById('dist').value;
+    if(count!=0){
+    var cost= (40+(miles*25.0))/count;
+    document.getElementById('share').innerHTML="Your Cab Share :   "+cost;
+    }
+    },10000);
+
 </script>
 
 </html>
