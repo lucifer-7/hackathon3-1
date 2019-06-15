@@ -20,6 +20,7 @@ router.post('/', function(req, res) {
 
     newDestination.save();
     console.log("New destination entry");
+    res.send("1").status(200);
 });
 
 module.exports = router;

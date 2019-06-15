@@ -143,16 +143,17 @@
 
     <section class="info-cell">
         <div class="submission-container">
-            <input id="name" type="text" placeholder="userName">
-            <input type="text" id="drop" placeholder="destination">
-            <button type="submit" class="btn-success" onclick="hit()">Button</button>
+            <input id="name" type="text" placeholder="UserName">
+            <input type="text" id="drop" placeholder="Destination">
+            <button type="submit" class="btn-success" onclick="hit()">Check Ride</button>
         </div>
 
-        <div class="card" style="border:2px solid #000; padding: 10px; margin: 25px; width: 550px; top: -285px; left: 600px; background-color: #fab702;">
+        <div class="card" style="border:2px solid #000; padding: 10px; margin: 25px; width: 550px; top: -285px; left: 800px; background-color: #fab702;">
             <h5 style="padding: 8px ;margin: 8px; background-color: #ffffff;" id="dest">Your Destination: </h5>
             <h5 style="padding: 8px ;margin: 8px; background-color: #ffffff;" id="dist">Total Distance: </h5>
             <h5 style="padding: 8px ;margin: 8px; background-color: #ffffff;" id="time">Total Duration: </h5>
-            <h5 style="padding: 8px ;margin: 8px; background-color: #ffffff;">Your Cab Share: </h5>
+            <h5 style="padding: 8px ;margin: 8px; background-color: #ffffff;" id="share">Your Cab Share: </h5>
+            <h5 style="padding: 8px;margin: 8px; background-color: #ffffff;" id="partners">Partners:</h5>
         </div>
     </section>
     <!--== Login Page Content End ==-->
@@ -282,7 +283,7 @@
         });
         
         if(check==1)
-        {window.display();} 
+        {display();} 
     }
 
     function display() {
